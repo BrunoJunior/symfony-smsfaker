@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+
+  # Back Office PHP-FPM
+  smsfaker-php:
+    container_name: smsfaker-php
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 10006:10000
+    volumes:
+      - ./:/var/www/html
+    restart: no
+    labels:
+      - "traefik.enable=false"
